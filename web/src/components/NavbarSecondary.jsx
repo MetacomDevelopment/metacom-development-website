@@ -70,17 +70,17 @@ const NavbarSecondary = function () {
     <Section
       padding="none"
       classes="hidden lg:block z-50 w-full"
-      bgColor={primary.darker.color}
+      bgColor={primary?.darker?.color}
     >
-      <Container padding="sm" classes="max-w-7xl px-4">
+      <Container padding="sm" classes="max-w-7xl px-4 xl:px-0">
         <Flex classes="justify-end align-items-center h-12">
           {nap.map((item) => (
             <Flex key={item.anchor} classes="my-auto px-6">
               <StyledContactLinks
-                $iconColor={accent.default.color}
-                $iconColorHover={accent.light.color}
-                $textColor={neutral.white.color}
-                $textColorHover={accent.light.color}
+                $iconColor={accent?.default?.color}
+                $iconColorHover={accent?.light?.color}
+                $textColor={neutral?.white?.color}
+                $textColorHover={accent?.light?.color}
                 href={item.url}
                 target="_blank"
                 rel="noopener"
@@ -94,10 +94,10 @@ const NavbarSecondary = function () {
             item.socialLinks.map((social) => (
               <Flex key={social._id} classes="my-auto pl-3">
                 <StyledSocialLinks
-                  $iconColor={accent.default.color}
-                  $iconColorHover={accent.light.color}
-                  $textColor={neutral.white.color}
-                  $textColorHover={accent.light.color}
+                  $iconColor={accent?.default?.color}
+                  $iconColorHover={accent?.light?.color}
+                  $textColor={neutral?.white?.color}
+                  $textColorHover={accent?.light?.color}
                   href={social.url}
                   target="_blank"
                   rel="noopener"
@@ -106,7 +106,7 @@ const NavbarSecondary = function () {
                     className="!text-2xl"
                     icon={['fab', social.icon]}
                   />
-                  <span className="text-md font-thin sr-only">
+                  <span className="text-md sr-only font-thin">
                     {social.anchor}
                   </span>
                 </StyledSocialLinks>

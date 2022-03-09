@@ -45,7 +45,7 @@ const useSanitySettings = () => {
               placeholder: BLURRED
               formats: WEBP
               layout: FIXED
-              height: 66
+              height: 55
             )
           }
         }
@@ -292,6 +292,7 @@ const useSanitySettings = () => {
           id
           layout
           headline
+          buttonCta
           _rawTagline
         }
       }

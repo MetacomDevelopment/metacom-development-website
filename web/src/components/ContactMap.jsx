@@ -70,8 +70,8 @@ const ContactMap = function ({ block, raw, index, contact, socialLinks }) {
   return (
     <Section
       type="my"
-      bgColor={neutral.lighter.color}
-      h2Color={accent.default.color}
+      bgColor={neutral?.lighter?.color}
+      h2Color={accent?.default?.color}
     >
       <Container classes="space-y-24">
         <Grid classes="lg:grid-cols-1 gap-x-12 gap-y-32">
@@ -190,10 +190,10 @@ const ContactMap = function ({ block, raw, index, contact, socialLinks }) {
                       {nap.map((contact) => (
                         <li key={contact.id}>
                           <StyledContactLinks
-                            $iconColor={accent.default.color}
-                            $iconColorHover={accent.light.color}
-                            $textColor={neutral.white.color}
-                            $textColorHover={accent.light.color}
+                            $iconColor={accent?.default?.color}
+                            $iconColorHover={accent?.light?.color}
+                            $textColor={neutral?.white?.color}
+                            $textColorHover={accent?.light?.color}
                             href={contact.url}
                             target="_blank"
                             rel="noopener"
@@ -209,8 +209,8 @@ const ContactMap = function ({ block, raw, index, contact, socialLinks }) {
                         <li key={social._id}>
                           <AnchorText
                             type="external"
-                            color={neutral.light.color}
-                            colorHover={accent.light.color}
+                            color={neutral?.light?.color}
+                            colorHover={accent?.light?.color}
                             href={social.url}
                           >
                             <span className="sr-only">{social.anchor}</span>

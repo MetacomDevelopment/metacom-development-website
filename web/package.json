@@ -17,6 +17,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^10.0.0",
+    "formik": "^2.2.9",
     "framer-motion": "^5.5.3",
     "gatsby": "^4.4.0",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",
@@ -46,8 +47,10 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.0.0",
     "react-icons": "^4.3.1",
+    "react-inlinesvg": "^2.3.0",
     "react-intersection-observer": "^8.32.1",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",

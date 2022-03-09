@@ -65,7 +65,7 @@ const HeroCenter = ({
           alt={bgImg?.alt}
           className="w-full h-full object-cover"
         />
-        <Overlay overlay={hero.overlay.color} />
+        <Overlay overlay={hero?.overlay?.color} />
       </div>
       <Grid classes="lg:grid-cols-1 gap-8 max-w-3xl mx-auto py-24 lg:py-0">
         <Flex classes="bg-gray-900/60 bg-clipping-path backdrop-filter backdrop-blur-lg mx-4 lg:mx-0 mt-12 lg:mt-24 p-6 lg:p-10 space-y-8 flex-col justify-center relative text-center lg:text-center rounded-xl shadow-xl">
@@ -76,7 +76,8 @@ const HeroCenter = ({
             animate={controls}
             transition={{ duration: 0.5, delay: 0 }}
             className={`mx-auto ${headlineWidth}`}
-            $headline={hero.headline.color}
+            $headline={hero?.headline?.color}
+            className="m-0 capitalize text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
           >
             {headline}
           </StyledHeroHeadline>
@@ -87,7 +88,7 @@ const HeroCenter = ({
             animate={controls}
             transition={{ duration: 0.5, delay: 0.2 }}
             className={`text-lg lg:text-xl mx-auto space-y-4 ${subheadlineWidth}`}
-            $subheadline={hero.tagline.color}
+            $subheadline={hero?.tagline?.color}
           >
             <SanityBlockContent blocks={raw.tagline} />
           </StyledHeroSubheadline>
@@ -151,7 +152,7 @@ const HeroCenter = ({
   //           alt={bgImg?.alt}
   //           className="w-full h-full object-cover"
   //         />
-  //         <Overlay overlay={hero.overlay.color} />
+  //         <Overlay overlay={hero?.overlay?.color} />
   //       </div>
   //       <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 max-w-7xl mx-auto mt-16 lg:mt-32 py-12 lg:py-24">
   //         <div className="relative text-center lg:text-center pt-5 pb-5 px-4 sm:pt-10 sm:pb-12 sm:px-6 lg:px-8">
@@ -162,7 +163,7 @@ const HeroCenter = ({
   //             animate={controls}
   //             transition={{ duration: 0.5, delay: 0 }}
   //             className="mx-auto text-5xl font-extrabold tracking-tight drop-shadow-text-darker sm:text-5xl lg:text-6xl capitalize mb-10 max-w-3xl"
-  //             $headline={hero.headline.color}
+  //             $headline={hero?.headline?.color}
   //           >
   //             {headline}
   //           </StyledHeroHeadline>
@@ -173,7 +174,7 @@ const HeroCenter = ({
   //             animate={controls}
   //             transition={{ duration: 0.5, delay: 0.2 }}
   //             className="mx-auto mt-6 text-xl lg:text-2xl max-w-xl drop-shadow-darker space-y-6"
-  //             $subheadline={hero.tagline.color}
+  //             $subheadline={hero?.tagline?.color}
   //           >
   //             <SanityBlockContent blocks={raw.tagline} />
   //           </StyledHeroSubheadline>

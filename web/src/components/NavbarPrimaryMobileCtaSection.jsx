@@ -136,7 +136,10 @@ const NavbarPrimaryMobileCtaSection = () => {
 
   return (
     <Grid>
-      <StyledMobileNavCtaBg $bgColor={primary.dark.color} className="pt-8 pb-4">
+      <StyledMobileNavCtaBg
+        $bgColor={primary?.dark?.color}
+        className="pt-8 pb-4"
+      >
         <Row classes="text-center">
           {navbars.map((item) => (
             <div key={item._key}>

@@ -7,7 +7,7 @@ export default {
   icon,
   groups: [
     { title: 'Layout', name: 'layoutSet' },
-    { title: 'Headlines', name: 'headlinesSet' },
+    { title: 'Copy', name: 'copySet' },
   ],
   fields: [
     {
@@ -29,14 +29,21 @@ export default {
       description: 'Add a headline to the top of the form.',
       name: 'headline',
       type: 'string',
-      group: 'headlinesSet',
+      group: 'copySet',
     },
     {
       title: 'Tagline',
       description: 'Add a tagline below the headline.',
       name: 'tagline',
       type: 'portableText',
-      group: 'headlinesSet',
+      group: 'copySet',
+    },
+    {
+      title: 'CTA Button',
+      description: 'Add a call to action to the button.',
+      name: 'buttonCta',
+      type: 'string',
+      group: 'copySet',
     },
   ],
 };

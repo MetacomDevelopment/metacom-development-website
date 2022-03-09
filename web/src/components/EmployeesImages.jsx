@@ -40,14 +40,14 @@ const EmployeesImages = ({
     <StyledEmployees
       idName={idName}
       type="sm"
-      bgColor={neutral.light.color}
-      h2Color={neutral.darker.color}
-      h3Color={primary.dark.color}
-      $spanColor={accent.light.color}
+      bgColor={neutral?.light?.color}
+      h2Color={neutral?.darker?.color}
+      h3Color={primary?.dark?.color}
+      $spanColor={accent?.light?.color}
     >
       <Container classes="max-w-md px-4 text-center sm:max-w-3xl lg:max-w-7xl">
         <StyledTagline
-          $spanColor={accent.dark.color}
+          $spanColor={accent?.dark?.color}
           className="text-base font-semibold tracking-wider uppercase"
         >
           {tagline}
@@ -56,7 +56,7 @@ const EmployeesImages = ({
           {headline}
         </h2>
         <div className="mt-5 max-w-prose mx-auto text-xl text-zinc-600">
-          <SanityBlockContent blocks={raw.description} />
+          <SanityBlockContent blocks={raw?.description} />
         </div>
         <Grid classes="mt-20 gap-3 sm:grid-cols-3 lg:grid-cols-3">
           {employee.map((item, index) => (
@@ -75,7 +75,7 @@ const EmployeesImages = ({
                 <h3 className="mt-8 text-3xl font-medium">{item.name}</h3>
                 <StyledAuthor
                   className="mt-5 text-lg font-medium"
-                  $color={accent.dark.color}
+                  $color={accent?.dark?.color}
                 >
                   <span>{item.position}</span>
                 </StyledAuthor>

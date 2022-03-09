@@ -8,6 +8,7 @@ import { useInView } from 'react-intersection-observer';
 
 import {
   Section,
+  SectionHeader,
   Container,
   Col,
   Grid,
@@ -17,9 +18,9 @@ import {
 import { useSanity } from '../hooks';
 
 const StyledLink = styled((props) => <AnchorText {...props} />)`
-  background-color: ${(props) => props.$bgColor};
+  background-color: ${(props) => props.$bgColor} !important;
   &:hover {
-    background-color: ${(props) => props.$bgColorHover};
+    background-color: ${(props) => props.$bgColorHover} !important;
   }
   & p {
     color: ${(props) => props.$textColor} !important;
@@ -30,9 +31,9 @@ const StyledLink = styled((props) => <AnchorText {...props} />)`
 `;
 
 const StyledImage = styled((props) => <GatsbyImage {...props} />)`
-  background-color: ${(props) => props.$bgColor};
+  background-color: ${(props) => props.$bgColor} !important;
   &:hover {
-    background-color: ${(props) => props.$bgColorHover};
+    background-color: ${(props) => props.$bgColorHover} !important;
   }
   & p {
     color: ${(props) => props.$textColor} !important;
@@ -43,9 +44,9 @@ const StyledImage = styled((props) => <GatsbyImage {...props} />)`
 `;
 
 const StyledLinkContainer = styled.div`
-  background-color: ${(props) => props.$bgColor};
+  background-color: ${(props) => props.$bgColor} !important;
   &:hover {
-    background-color: ${(props) => props.$bgColorHover};
+    background-color: ${(props) => props.$bgColorHover} !important;
   }
   & p {
     color: ${(props) => props.$textColor} !important;
@@ -106,23 +107,16 @@ const ServicesImages = ({
   return (
     <Section
       type="my"
-      bgColor={neutral.lighter.color}
-      h2Color={neutral.darker.color}
-      h3Color={secondary.dark.color}
+      bgColor={neutral?.lighter?.color}
+      h2Color={neutral?.darker?.color}
+      h3Color={secondary?.dark?.color}
     >
       <Container classes="max-w-md px-4 text-center sm:max-w-3xl lg:max-w-7xl">
-        <StyledTagline
-          $spanColor={accent.dark.color}
-          className="text-base font-semibold tracking-wider uppercase"
-        >
-          {header.tagline}
-        </StyledTagline>
-        <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl lg:max-w-xl mx-auto">
-          {header.headline}
-        </h2>
-        <div className="mt-5 max-w-prose mx-auto text-xl text-zinc-600">
-          <SanityBlockContent blocks={raw.description} />
-        </div>
+        <SectionHeader
+          tagline={header?.tagline}
+          headline={header?.headline}
+          description={header?._rawDescription}
+        />
         <div className="mt-24">
           <Grid classes="gap-8 sm:grid-cols-2 lg:grid-cols-2 grid-flow-row lg:gap-x-8 auto-rows-fr">
             {service.map((item) => (
@@ -135,30 +129,30 @@ const ServicesImages = ({
                   <StyledLink
                     type="internal"
                     to={item?.link?.slug?.current}
-                    $bgColor={primary.default.color}
-                    $bgColorHover={neutral.dark.color}
-                    $textColor={accent.lighter.color}
-                    $textColorHover={accent.default.color}
+                    // $bgColor={primary?.dark?.color}
+                    // $bgColorHover={neutral?.light?.color}
+                    $textColor={accent?.lighter?.color}
+                    $textColorHover={accent?.default?.color}
                     classes="relative py-24 px-4 rounded-xl shadow-2xl overflow-hidden lg:px-8 flex md:h-full lg:flex-col justify-between"
                   >
                     {item?.link?.pageBuilder?.map((hero) => (
                       <div className="absolute inset-0">
                         <StyledImage
-                          $bgColor={primary.default.color}
-                          $bgColorHover={neutral.dark.color}
-                          $textColor={accent.lighter.color}
-                          $textColorHover={accent.default.color}
+                          // $bgColor={primary?.dark?.color}
+                          // $bgColorHover={neutral?.light?.color}
+                          $textColor={accent?.lighter?.color}
+                          $textColorHover={accent?.default?.color}
                           image={hero?.bgImg?.asset?.gatsbyImageData}
                           className="w-full h-full object-cover rounded-xl"
                           alt={hero?.bgImg?.alt}
                         />
                         <StyledLinkContainer
                           key={hero?.bgImg?.asset?._id}
-                          $bgColor={primary.default.color}
-                          $bgColorHover={neutral.dark.color}
-                          $textColor={accent.lighter.color}
-                          $textColorHover={accent.default.color}
-                          className="absolute inset-0 !opacity-90 !filter !saturate-90 !mix-blend-multiply"
+                          $bgColor={primary?.default?.color}
+                          $bgColorHover={neutral?.light?.color}
+                          $textColor={accent?.lighter?.color}
+                          $textColorHover={accent?.default?.color}
+                          className="absolute inset-0 opacity-90 filter saturate-90 mix-blend-multiply"
                         ></StyledLinkContainer>
                       </div>
                     ))}

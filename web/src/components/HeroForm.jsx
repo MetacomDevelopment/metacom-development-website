@@ -6,7 +6,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 import { useSanity } from '../hooks';
-import { SanityBlockContent, Button, FormHero, Grid, Flex, Overlay } from '.';
+import { SanityBlockContent, Button, Form, Grid, Flex, Overlay } from '.';
 
 const StyledHeroHeadline = styled(motion.h1)`
   color: ${(props) => props.$headline};
@@ -56,17 +56,18 @@ const HeroForm = ({
           alt={bgImg?.alt}
           className="w-full h-full object-cover"
         />
-        <Overlay overlay={hero.overlay.color} />
+        <Overlay overlay={hero?.overlay?.color} />
       </div>
-      <Grid classes="lg:grid-cols-2 gap-8 max-w-7xl">
-        <Flex classes="bg-gray-900/60 bg-clipping-path backdrop-filter backdrop-blur-lg mt-12 lg:mt-24 p-6 lg:p-10 space-y-6 flex-col justify-center relative text-center lg:text-left rounded-xl shadow-xl">
+      <Grid classes="lg:grid-cols-2 gap-8 max-w-7xl my-24 lg:mb-0 lg:mt-12">
+        <Flex classes="bg-gray-900/60 bg-clipping-path backdrop-filter backdrop-blur-lg mx-4 lg:mx-0 mt-12 lg:mt-24 p-6 lg:p-10 space-y-6 flex-col justify-center relative text-center lg:text-left rounded-xl shadow-xl">
           <StyledHeroHeadline
             ref={ref}
             variants={variants}
             initial="hidden"
             animate={controls}
             transition={{ duration: 0.5, delay: 0 }}
-            $headline={hero.headline.color}
+            $headline={hero?.headline?.color}
+            className="m-0 capitalize text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
           >
             {headline}
           </StyledHeroHeadline>
@@ -77,11 +78,11 @@ const HeroForm = ({
             animate={controls}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg lg:text-xl max-w-3xl space-y-4"
-            $subheadline={hero.tagline.color}
+            $subheadline={hero?.tagline?.color}
           >
             <SanityBlockContent blocks={raw.tagline} />
           </StyledHeroSubheadline>
-          <Flex classes="flex-col lg:flex-row mx-auto lg:mx-0 gap-8">
+          {/* <Flex classes="flex-col lg:flex-row mx-auto lg:mx-0 gap-8">
             <motion.div
               ref={ref}
               variants={variants}
@@ -121,11 +122,11 @@ const HeroForm = ({
                 />
               </div>
             </motion.div>
-          </Flex>
+          </Flex> */}
         </Flex>
-        <Flex classes="flex-col justify-center relative mx-auto lg:max-w-lg mt-24">
+        <Flex classes="flex-col justify-center relative mx-auto lg:max-w-lg mt-6 lg:mt-24">
           <div className="overflow-hidden">
-            <FormHero formName="form-hero" />
+            <Form formName="form-hero" />
           </div>
         </Flex>
       </Grid>

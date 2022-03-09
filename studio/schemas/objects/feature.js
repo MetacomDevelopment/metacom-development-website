@@ -17,6 +17,7 @@ export default {
       name: 'headline',
       type: 'string',
       group: 'featureSet',
+      initialValue: 'This Is A Great Headline',
     },
     {
       title: 'Description',

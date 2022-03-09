@@ -25,6 +25,7 @@ export default {
         direction: 'horizontal',
       },
       group: 'layoutSet',
+      initialValue: 'alternatingNoCta',
     },
     {
       title: 'ID Name',
@@ -32,6 +33,7 @@ export default {
       name: 'idName',
       type: 'string',
       group: 'idSet',
+      initialValue: 'features',
     },
     {
       title: 'Header',

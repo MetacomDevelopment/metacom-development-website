@@ -14,7 +14,7 @@ const SEO = ({ lang, title, description, canonical, image, children }) => {
       htmlAttributes={{
         lang,
       }}
-      title={`${title} | ${info.name}`}
+      title={`${title} | ${info?.name}`}
     >
       <link
         rel="canonical"

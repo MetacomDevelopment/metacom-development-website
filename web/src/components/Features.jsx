@@ -5,46 +5,28 @@ import { FeaturesAltNoCta, FeaturesAltCta } from '.';
 const Features = ({ block, raw, index }) => {
   const {
     layout,
+    idName,
+    header,
     feature,
     headline,
     _rawDescription,
     image,
     ctaButton,
-    idName,
-    linkType,
-    label,
-    internalLink,
-    externalLink,
-    jumpLink,
   } = block;
 
   switch (layout) {
-    default:
-      return (
-        <FeaturesAltNoCta
-          block={block}
-          raw={raw}
-          index={index}
-          feature={feature}
-          headline={headline}
-          _rawDescription={_rawDescription}
-          image={image}
-          ctaButton={ctaButton}
-          idName={idName}
-        />
-      );
     case 'alternatingNoCta':
       return (
         <FeaturesAltNoCta
           block={block}
           raw={raw}
           index={index}
+          idName={idName}
+          header={header}
           feature={feature}
           headline={headline}
           _rawDescription={_rawDescription}
           image={image}
-          ctaButton={ctaButton}
-          idName={idName}
         />
       );
     case 'alternatingCta':
@@ -53,17 +35,27 @@ const Features = ({ block, raw, index }) => {
           block={block}
           raw={raw}
           index={index}
+          idName={idName}
+          header={header}
           feature={feature}
           headline={headline}
           _rawDescription={_rawDescription}
           image={image}
           ctaButton={ctaButton}
+        />
+      );
+    default:
+      return (
+        <FeaturesAltNoCta
+          block={block}
+          raw={raw}
+          index={index}
           idName={idName}
-          linkType={linkType}
-          label={label}
-          internalLink={internalLink}
-          externalLink={externalLink}
-          jumpLink={jumpLink}
+          header={header}
+          feature={feature}
+          headline={headline}
+          _rawDescription={_rawDescription}
+          image={image}
         />
       );
   }

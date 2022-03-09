@@ -141,7 +141,7 @@ const NavbarPrimaryLogo = () => {
         className="h-24 flex justify-start content-center items-center"
       >
         <GatsbyImage
-          image={logo.navbar?.asset?.gatsbyImageData}
+          image={logo?.navbar?.asset?.gatsbyImageData}
           alt={`${info?.name} company logo`}
           loading="eager"
           className="transition hover:scale-110 flex justify-start content-center items-center"

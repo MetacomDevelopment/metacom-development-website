@@ -77,9 +77,9 @@ const MenuList = ({
     <Section
       idName={idName}
       type="my"
-      bgColor={neutral.white.color}
-      h2Color={neutral.darker.color}
-      h3Color={secondary.dark.color}
+      bgColor={neutral?.white?.color}
+      h2Color={neutral?.darker?.color}
+      h3Color={secondary?.dark?.color}
     >
       <div classes="max-w-md px-4 text-center sm:max-w-3xl lg:max-w-7xl">
         {category.map((item) => (

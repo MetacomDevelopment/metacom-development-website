@@ -3,7 +3,7 @@ import React from 'react';
 import { BenefitsIcons } from '.';
 
 const Benefits = ({ block, raw, index }) => {
-  const { layout, idName, header, benefit, title, author, info, icon } = block;
+  const { layout, idName, header, benefit } = block;
 
   switch (layout) {
     case 'icons':
@@ -15,10 +15,6 @@ const Benefits = ({ block, raw, index }) => {
           idName={idName}
           header={header}
           benefit={benefit}
-          icon={icon}
-          title={title}
-          author={author}
-          info={info}
         />
       );
     default:
@@ -30,10 +26,6 @@ const Benefits = ({ block, raw, index }) => {
           idName={idName}
           header={header}
           benefit={benefit}
-          icon={icon}
-          title={title}
-          author={author}
-          info={info}
         />
       );
   }

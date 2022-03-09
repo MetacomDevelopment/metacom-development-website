@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import {
   Section,
+  SectionHeader,
   Container,
   Grid,
   Row,
@@ -40,24 +41,8 @@ const StyledLink = styled((props) => <Link {...props} />)`
   }
 `;
 
-const RowTextLeft = ({
-  _key,
-  headline,
-  _rawDescription,
-  image,
-  alt,
-  idName,
-  ctaButton,
-  linkType,
-  label,
-  internalLink,
-  externalLink,
-  jumpLink,
-}) => (
-  <Grid
-    key={_key}
-    classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36 lg:max-w-7xl"
-  >
+const RowTextLeft = ({ image, headline, _rawDescription, ctaButton }) => (
+  <Grid classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36 lg:max-w-7xl">
     <Col classes="order-2 lg:order-none">
       <div className="text-lg text-zinc-500 max-w-prose mx-auto lg:max-w-none space-y-10">
         <div className="space-y-6">
@@ -70,27 +55,13 @@ const RowTextLeft = ({
         </div>
         <div className="flex mt-10">
           <div className="mx-auto lg:mx-0 max">
-            {ctaButton.linkType === null || undefined ? (
-              'internal'
-            ) : ctaButton.linkType === 'internal' ? (
-              <Button
-                linkType={ctaButton.linkType}
-                internalLink={ctaButton.internalLink}
-                label={ctaButton.label}
-              />
-            ) : ctaButton.linkType === 'external' ? (
-              <Button
-                linkType={ctaButton.linkType}
-                externalLink={ctaButton.externalLink}
-                label={ctaButton.label}
-              />
-            ) : ctaButton.linkType === 'jump' ? (
-              <Button
-                linkType={ctaButton.linkType}
-                jumpLink={ctaButton.jumpLink}
-                label={ctaButton.label}
-              />
-            ) : null}
+            <Button
+              linkType={ctaButton?.linkType}
+              internalLink={ctaButton?.internalLink.slug.current}
+              externalLink={ctaButton?.externalLink}
+              jumpLink={ctaButton?.jumpLink}
+              label={ctaButton?.label}
+            />
           </div>
         </div>
       </div>
@@ -108,21 +79,8 @@ const RowTextLeft = ({
   </Grid>
 );
 
-const RowTextRight = ({
-  _key,
-  headline,
-  _rawDescription,
-  image,
-  alt,
-  idName,
-  ctaButton,
-  linkType,
-  label,
-  internalLink,
-  externalLink,
-  jumpLink,
-}) => (
-  <Grid key={_key} classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36">
+const RowTextRight = ({ headline, _rawDescription, image, ctaButton }) => (
+  <Grid classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36 lg:max-w-7xl">
     <Col classes="order-1 lg:order-none">
       <Container padding="none">
         <GatsbyImage
@@ -146,32 +104,11 @@ const RowTextRight = ({
             <div className="mx-auto lg:mx-0 max">
               <Button
                 linkType={ctaButton?.linkType}
-                internalLink={ctaButton?.internalLink}
+                internalLink={ctaButton?.internalLink.slug.current}
                 externalLink={ctaButton?.externalLink}
                 jumpLink={ctaButton?.jumpLink}
                 label={ctaButton?.label}
               />
-              {/* {ctaButton.linkType === null || undefined ? (
-                'internal'
-              ) : ctaButton.linkType === 'internal' ? (
-                <Button
-                  linkType={ctaButton.linkType}
-                  internalLink={ctaButton.internalLink}
-                  label={ctaButton.label}
-                />
-              ) : ctaButton.linkType === 'external' ? (
-                <Button
-                  linkType={ctaButton.linkType}
-                  externalLink={ctaButton.externalLink}
-                  label={ctaButton.label}
-                />
-              ) : ctaButton.linkType === 'jump' ? (
-                <Button
-                  linkType={ctaButton.linkType}
-                  jumpLink={ctaButton.jumpLink}
-                  label={ctaButton.label}
-                />
-              ) : null} */}
             </div>
           </div>
         </div>
@@ -180,17 +117,7 @@ const RowTextRight = ({
   </Grid>
 );
 
-const FeaturesAltCta = ({
-  block,
-  raw,
-  index,
-  feature,
-  headline,
-  _rawDescription,
-  image,
-  ctaButton,
-  idName,
-}) => {
+const FeaturesAltCta = ({ block, raw, index, idName, header, feature }) => {
   const { primary, secondary, accent, neutral, hero } = useSanity();
 
   const featureRows = feature.map((r, i) =>
@@ -205,10 +132,16 @@ const FeaturesAltCta = ({
     <Section
       idName={idName}
       type="my"
-      bgColor={neutral.white.color}
-      h2Color={primary.dark.color}
+      bgColor={neutral?.white?.color}
+      h2Color={primary?.dark?.color}
+      classes="space-y-24"
     >
-      <Container classes="space-y-24">{featureRows}</Container>
+      <SectionHeader
+        tagline={header?.tagline}
+        headline={header?.headline}
+        description={header?._rawDescription}
+      />
+      <Container classes="space-y-36">{featureRows}</Container>
     </Section>
   );
 };

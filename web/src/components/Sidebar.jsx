@@ -4,7 +4,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import {
   Section,
   FadeIn,
-  Form,
+  FormHero,
   SidebarListServices,
   SidebarCta,
   SidebarTestimonial,
@@ -16,7 +16,7 @@ const Sidebar = ({ sidebarType }) => {
       return (
         <aside className="hidden pt-12 lg:flex lg:h-full lg:pt-0">
           <FadeIn classes="space-y-20 lg:h-full">
-            <Form formName="form-sidebar" />
+            <FormHero formName="form-sidebar" />
             <SidebarListServices />
           </FadeIn>
         </aside>
@@ -25,7 +25,7 @@ const Sidebar = ({ sidebarType }) => {
       return (
         <aside className="hidden pt-12 lg:flex lg:h-full lg:pt-0">
           <FadeIn classes="space-y-20 lg:h-full">
-            <Form formName="form-sidebar" />
+            <FormHero formName="form-sidebar" />
             <SidebarListServices />
           </FadeIn>
         </aside>
@@ -34,7 +34,7 @@ const Sidebar = ({ sidebarType }) => {
       return (
         <aside className="hidden pt-12 lg:flex lg:h-full lg:pt-0">
           <FadeIn classes="space-y-20 lg:h-full">
-            <Form formName="form-sidebar" />
+            <FormHero formName="form-sidebar" />
             <SidebarListServices />
           </FadeIn>
         </aside>
@@ -43,7 +43,7 @@ const Sidebar = ({ sidebarType }) => {
       return (
         <aside className="hidden pt-12 lg:flex lg:h-full lg:pt-0">
           <FadeIn classes="space-y-20 lg:h-full">
-            <Form formName="form-sidebar" />
+            <FormHero formName="form-sidebar" />
             <SidebarListServices />
           </FadeIn>
         </aside>

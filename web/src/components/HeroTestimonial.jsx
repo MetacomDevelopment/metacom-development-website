@@ -63,7 +63,7 @@ const Hero = ({
           alt={bgImg?.alt}
           className="w-full h-full object-cover"
         />
-        <Overlay overlay={hero.overlay.color} />
+        <Overlay overlay={hero?.overlay?.color} />
       </div>
       <Grid classes="lg:grid-cols-2 gap-4 max-w-7xl mx-auto mt-16 lg:mt-32 py-12 lg:py-24">
         <Flex classes="flex-col justify-center relative text-center lg:text-left pt-5 pb-5 px-4 sm:pt-10 sm:pb-12 sm:px-6 lg:px-8">
@@ -74,7 +74,7 @@ const Hero = ({
             animate={controls}
             transition={{ duration: 0.5, delay: 0 }}
             className="text-5xl font-extrabold tracking-tight drop-shadow-darker sm:text-5xl lg:text-6xl mb-10"
-            $headline={hero.headline.color}
+            $headline={hero?.headline?.color}
           >
             {headline}
           </StyledHeroHeadline>
@@ -85,7 +85,7 @@ const Hero = ({
             animate={controls}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl lg:text-2xl max-w-3xl drop-shadow-darker space-y-6"
-            $subheadline={hero.tagline.color}
+            $subheadline={hero?.tagline?.color}
           >
             <SanityBlockContent blocks={raw.tagline} />
           </StyledHeroSubheadline>
@@ -113,8 +113,8 @@ const Hero = ({
           <div className="relative lg:flex lg:items-center">
             <div className="relative lg:ml-10">
               <StyledTestimonial
-                $bgColor={primary.darker.color}
-                $color={primary.lighter.color}
+                $bgColor={primary?.darker?.color}
+                $color={primary?.lighter?.color}
                 className="bg-opacity-80 overflow-hidden rounded-2xl shadow-2xl z-10 p-8 lg:p-10"
               >
                 <svg

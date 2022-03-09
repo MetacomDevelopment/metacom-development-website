@@ -74,7 +74,7 @@ const CtaFull = ({
   }, [controls, inView]);
 
   return (
-    <Section padding="none" h2Color={hero.headline.color}>
+    <Section padding="none" h2Color={hero?.headline?.color}>
       <Container padding="none">
         <Container padding="none" classes="absolute inset-0">
           <GatsbyImage
@@ -83,7 +83,7 @@ const CtaFull = ({
             alt={image?.alt}
             loading="lazy"
           />
-          <Overlay overlay={hero.overlay.color} />
+          <Overlay overlay={hero?.overlay?.color} />
         </Container>
         <div className="relative max-w-4xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
           <motion.h2
@@ -120,7 +120,7 @@ const CtaFull = ({
             <div className="col-1 gap-4 mx-auto">
               <Button
                 linkType="internal"
-                internalLink={ctaButtonLink.slug.current}
+                internalLink={ctaButtonLink?.slug?.current}
                 label={ctaButtonLabel}
               />
             </div>
@@ -128,7 +128,7 @@ const CtaFull = ({
         </div>
       </Container>
     </Section>
-    // <Section padding="none" $bgColor={neutral.dark.color}>
+    // <Section padding="none" $bgColor={neutral?.dark?.color}>
     //   <Container padding="none">
     //     <Grid classes="lg:grid-cols-2 gap-0">
     //       <Col classes="">
@@ -148,7 +148,7 @@ const CtaFull = ({
     //             {headline}
     //           </h2>
     //           <div className="!text-zinc-300 space-y-6 mt-6">
-    //             <SanityBlockContent blocks={raw.description} />
+    //             <SanityBlockContent blocks={raw?.description} />
     //           </div>
     //           <div className="mx-auto lg:mx-none mt-12 flex justify-center lg:justify-start rounded-md drop-shadow">
     //             <Button linkType="internal" />

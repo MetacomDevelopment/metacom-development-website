@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import BlockContent from '@sanity/block-content-to-react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { AnchorText } from '.';
 import { useSanity } from '../hooks';
 
-const SanityBlockContent = ({ blocks, classes }) => {
+const SanityBlockContent = ({
+  blocks,
+  classes,
+  initialOpacity,
+  initialScale,
+}) => {
   const { primary, secondary, accent, neutral, hero } = useSanity();
 
   const serializers = {
@@ -25,16 +31,13 @@ const SanityBlockContent = ({ blocks, classes }) => {
       ),
       internalLink: ({ mark, children }) => {
         const { reference = {} } = mark;
-        const href =
-          reference.slug.current === 'home'
-            ? '/'
-            : `/${reference.slug.current}/`;
+        const href = reference?.slug?.current;
         return (
           <AnchorText
             type="internal"
             to={href}
-            color={accent.default.color}
-            colorHover={accent.dark.color}
+            color={accent?.default?.color}
+            colorHover={accent?.dark?.color}
           >
             {children}
           </AnchorText>
@@ -46,8 +49,8 @@ const SanityBlockContent = ({ blocks, classes }) => {
           <AnchorText
             type="external"
             href={href}
-            color={accent.default.color}
-            colorHover={accent.dark.color}
+            color={accent?.default?.color}
+            colorHover={accent?.dark?.color}
           >
             {children}
           </AnchorText>
@@ -59,7 +62,7 @@ const SanityBlockContent = ({ blocks, classes }) => {
   };
 
   const variants = {
-    initial: { opacity: 0, scale: 0.8 },
+    initial: { opacity: initialOpacity, scale: initialScale },
     animate: {
       opacity: 1,
       scale: 1,
@@ -96,6 +99,19 @@ const SanityBlockContent = ({ blocks, classes }) => {
       />
     </motion.div>
   );
+};
+
+SanityBlockContent.defaultProps = {
+  classes: '',
+  initialOpacity: 0,
+  initialScale: 0.8,
+};
+
+SanityBlockContent.propTypes = {
+  blocks: PropTypes.array.isRequired,
+  classes: PropTypes.string,
+  initialOpacity: PropTypes.number,
+  initialScale: PropTypes.number,
 };
 
 export default SanityBlockContent;

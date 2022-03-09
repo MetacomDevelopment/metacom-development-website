@@ -24,9 +24,16 @@ export default {
       type: 'string',
     },
     {
+      title: 'Icon',
+      description: 'Upload the icon filename.',
+      name: 'iconUpload',
+      type: 'imageAlt',
+    },
+    {
       title: 'Title',
       name: 'title',
       type: 'string',
+      initialValue: 'Benefit',
     },
     {
       title: 'Description',

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import styled from 'styled-components';
 
 import { Col, Grid, AnchorText, Button, SanityBlockContent } from '.';
@@ -24,17 +26,62 @@ const StyledButton = styled.button`
 `;
 
 const Form = ({ formName }) => {
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      location: '',
+      service: '',
+      // type: '',
+      // findUs: '',
+      message: '',
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .min(1, 'Must be more than 1 character')
+        .max(20, 'Must be 20 characters or less')
+        .required('First name is required'),
+      lastName: Yup.string()
+        .min(1, 'Must be more than 1 character')
+        .max(20, 'Must be 20 characters or less')
+        .required('Last name is required'),
+      email: Yup.string()
+        .email('Invalid email address')
+        .required('Email is required'),
+      phone: Yup.string()
+        .required('Phone number is required')
+        .matches(
+          /^([0]{1}|\+?[234]{3})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,
+          'Invalid phone number'
+        ),
+      location: Yup.string().required('Location is required'),
+      service: Yup.string().required('Service is required'),
+      // type: Yup.string()
+      //   .max(20, 'Must be 20 characters or less')
+      //   .required('Required'),
+      // findUs: Yup.string()
+      //   .max(20, 'Must be 20 characters or less')
+      //   .required('Required'),
+      message: Yup.string().required('Message is required'),
+    }),
+    onSubmit: (values, { setSubmitting }) => {},
+  });
+
   const [contact, setContact] = useState({
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
-    company: '',
+    location: '',
     service: '',
+    // type: '',
+    // findUs: '',
     message: '',
   });
 
-  const { firstName, lastName, email, phone, company, service, message } =
+  const { firstName, lastName, email, phone, location, service, message } =
     contact;
 
   const handleChange = (e) =>
@@ -48,29 +95,30 @@ const Form = ({ formName }) => {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      className="relative p-3 lg:p-5 rounded-xl shadow-xl max-w-4xl mx-3 lg:mx-auto"
+      className="relative mx-3 max-w-4xl rounded-xl p-3 shadow-xl lg:mx-auto lg:p-5"
       id={formName}
-      $bgColor={primary.dark.color}
+      $bgColor={primary?.dark?.color}
+      onSubmit={formik.handleSubmit}
     >
       {forms.map((form) => (
         <div>
-          <div className="space-y-6 mb-16">
+          <div className="mb-6 space-y-6">
             <StyledHeadline
-              className="text-4xl font-bold text-center mb-1 mt-4 mt-md-0"
-              $color={accent.default.color}
+              className="text-center text-4xl font-bold"
+              $color={accent?.default?.color}
             >
-              {form.headline}
+              {form?.headline}
             </StyledHeadline>
             <StyledBorder
-              className="text-xl font-italic text-zinc-100 text-center max-w-md mx-auto"
-              $borderColor={accent.light.color}
+              className="font-italic text-center text-xl text-zinc-100"
+              $borderColor={accent?.light?.color}
             >
-              <SanityBlockContent blocks={form._rawTagline} />
+              <SanityBlockContent blocks={form?._rawTagline} />
             </StyledBorder>
           </div>
           <input type="hidden" name="form-name" value={formName} />
 
-          <Grid classes="gap-x-4 gap-y-6 lg:grid-cols-2">
+          <Grid classes="gap-x-4 gap-y-4 lg:grid-cols-2">
             <Col>
               <input
                 name="firstName"
@@ -79,7 +127,7 @@ const Form = ({ formName }) => {
                 onChange={handleChange}
                 placeholder="First Name"
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
             <Col>
@@ -101,7 +149,7 @@ const Form = ({ formName }) => {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
             <Col>
@@ -110,20 +158,20 @@ const Form = ({ formName }) => {
                 type="tel"
                 value={phone}
                 onChange={handleChange}
-                placeholder="Phone Number"
+                placeholder="Phone"
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
             <Col>
               <input
-                name="company"
+                name="location"
                 type="text"
-                value={company}
+                value={location}
                 onChange={handleChange}
-                placeholder="Company"
+                placeholder="Location"
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
             <Col>
@@ -133,45 +181,90 @@ const Form = ({ formName }) => {
                 value={service}
                 onChange={handleChange}
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               >
                 <option value="" disabled hidden>
                   Service...
                 </option>
-                <option value="Healthcare Software Development">
-                  Healthcare Software Development
+                <option value="Solar Development">Solar Development</option>
+                <option value="Waste Water Treatment Installation">
+                  Waste Water Treatment Installation
                 </option>
-                <option value="Healthcare Technology Consulting">
-                  Healthcare Technology Consulting
+                <option value="Commercial Construction">
+                  Commercial Construction
                 </option>
-                <option value="Custom Software Development">
-                  Custom Software Development
-                </option>
-                <option value="Legacy Application Modernization">
-                  Legacy Application Modernization
-                </option>
-                <option value="Website Design & Development">
-                  Website Design & Development
-                </option>
-                <option value="Mobile App Development">
-                  Mobile App Development
-                </option>
+                <option value="Excavation">Excavation</option>
               </select>
             </Col>
+            {/* <Col>
+              <select
+                name="type"
+                as="select"
+                value={type}
+                onChange={handleChange}
+                required
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
+              >
+                <option value="" disabled hidden>
+                  Type...
+                </option>
+                <option value="Solar Development">Solar Development</option>
+                <option value="Waste Water Treatment Installation">
+                  Waste Water Treatment Installation
+                </option>
+                <option value="Commercial Construction">
+                  Commercial Construction
+                </option>
+                <option value="Excavation">Excavation</option>
+              </select>
+            </Col> */}
+            {/* <Col classes="lg:col-span-2">
+              <select
+                name="findUs"
+                as="select"
+                value={findUs}
+                onChange={handleChange}
+                required
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
+              >
+                <option value="" disabled hidden>
+                  How Did You Find Us?
+                </option>
+                <option value="Google">Google</option>
+                <option value="Bing">Bing</option>
+                <option value="Facebook">Facebook</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Referral">Referral</option>
+                <option value="Directory (Yellowpages, etc.)">
+                  Directory (Yellowpages, etc.)
+                </option>
+                <option value="Other">Other</option>
+              </select>
+            </Col> */}
             <Col classes="lg:col-span-2">
               <textarea
                 name="message"
                 rows="3"
                 value={message}
                 onChange={handleChange}
-                placeholder="Please leave us a detailed message..."
+                placeholder="Please leave a detailed message..."
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
           </Grid>
-          <div className="text-center mt-10 mb-6">
-            <Button linkType="form" label="Get My Custom Solution" />
+
+          {/* <div className="text-zinc-100 text-sm my-10">
+            <p className="italic">
+              <span className="text-red-500">*</span> All fields required
+            </p>
+            <p className="italic">
+              <span className="text-red-500">*</span> Your information will
+              never be shared.
+            </p>
+          </div> */}
+          <div className="mt-5 mb-3 text-center lg:mb-0">
+            <Button linkType="form" label={form.buttonCta} />
           </div>
         </div>
       ))}

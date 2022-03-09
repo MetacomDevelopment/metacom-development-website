@@ -33,20 +33,20 @@ const CallBtn = () => {
     useSanity();
   return (
     <StyledAnchor
-      // $color={primary.dark.color}
-      // $bgColor={primary.dark.color}
+      // $color={primary?.dark?.color}
+      // $bgColor={primary?.dark?.color}
       href={info.phoneUrl}
       className="call-btn fa-stack fa-2x"
     >
       <StyledIconCircle
-        $color={primary.dark.color}
-        $colorHover={primary.darker.color}
-        $outlineColor={accent.default.color}
+        $color={primary?.dark?.color}
+        $colorHover={primary?.darker?.color}
+        $outlineColor={accent?.default?.color}
         className="fas fa-circle fa-stack-2x btn-outline"
       />
       <StyledIconPhone
-        $color={accent.default.color}
-        $colorHover={accent.default.color}
+        $color={accent?.default?.color}
+        $colorHover={accent?.default?.color}
         className="fas fa-phone fa-stack-1x fa-inverse"
       />
     </StyledAnchor>

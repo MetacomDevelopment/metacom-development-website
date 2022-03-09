@@ -25,7 +25,7 @@ const RichTextNoSidebar = function ({
   const { primary, secondary, accent, neutral, hero } = useSanity();
 
   return (
-    <Section idName={idName} padding="lg" bgColor={neutral.white.color}>
+    <Section idName={idName} padding="lg" bgColor={neutral?.white?.color}>
       <RichTextAlignment
         block={block}
         raw={raw}

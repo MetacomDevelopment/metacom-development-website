@@ -22,6 +22,7 @@ export default {
         direction: 'horizontal',
       },
       group: 'layoutSet',
+      initialValue: 'icons',
     },
     {
       title: 'ID Name',
@@ -29,6 +30,7 @@ export default {
       name: 'idName',
       type: 'string',
       group: 'idSet',
+      initialValue: 'benefits',
     },
     {
       title: 'Header',

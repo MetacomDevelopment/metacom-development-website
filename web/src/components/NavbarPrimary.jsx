@@ -272,8 +272,12 @@ const NavbarPrimary = () => {
           <NavbarPrimaryLogo />
           <div className="hidden lg:flex justify-center content-center items-center">
             <StyledMenuLinks
-              $color={navbar.primaryNavTextColor.color}
-              $colorHover={accent.default.color}
+              $color={
+                navbar?.primaryNavTextColor?.color
+                  ? navbar?.primaryNavTextColor?.color
+                  : neutral?.darker?.color
+              }
+              $colorHover={accent?.default?.color}
               className="flex space-x-8"
             >
               {navbars?.map((primary) =>
@@ -282,7 +286,7 @@ const NavbarPrimary = () => {
                     <li>
                       <AnchorText
                         type="internal"
-                        color={neutral.default.color}
+                        color={neutral?.default?.color}
                         to={link?.singlePageLink?.slug?.current}
                       >
                         {link?.singlePageLink?.anchor}
@@ -331,7 +335,7 @@ const NavbarPrimary = () => {
                                     dropdownLink?.singlePageLink ? (
                                       <AnchorText
                                         type="internal"
-                                        color={neutral.default.color}
+                                        color={neutral?.default?.color}
                                         key={
                                           dropdownLink?.singlePageLink?.slug
                                             ?.current
@@ -344,7 +348,7 @@ const NavbarPrimary = () => {
                                       >
                                         <StyledDropdownItem
                                           className="flex p-2 transition duration-150 ease-in-out rounded-lg"
-                                          $bgColorHover={accent.lighter.color}
+                                          $bgColorHover={accent?.lighter?.color}
                                         >
                                           {dropdownLink?.singlePageLink?.pageBuilder?.map(
                                             (hero) => (
@@ -382,7 +386,7 @@ const NavbarPrimary = () => {
                                         {({ open }) => (
                                           <>
                                             <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                                              {dropdownLink.dropdownTextLabel}
+                                              {dropdownLink?.dropdownTextLabel}
                                               <ChevronUpIcon
                                                 className={`${
                                                   open
@@ -392,10 +396,10 @@ const NavbarPrimary = () => {
                                               />
                                             </Disclosure.Button>
                                             <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                              {dropdownLink.dropdowns.map(
+                                              {dropdownLink?.$bgColor?.dropdowns.map(
                                                 (dropdownLink) =>
-                                                  dropdownLink.singlePageLink
-                                                    .anchor
+                                                  dropdownLink?.singlePageLink
+                                                    ?.anchor
                                               )}
                                             </Disclosure.Panel>
                                           </>
@@ -407,7 +411,7 @@ const NavbarPrimary = () => {
                                 {/* <div className="p-4 bg-gray-50">
                                   <AnchorText
                                   type="internal"
-                                  color={neutral.default.color}
+                                  color={neutral?.default?.color}
                                     to={}
                                     className="flow-root px-2 py-2 transition duration-150 ease-in-out rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                                   >
@@ -438,24 +442,24 @@ const NavbarPrimary = () => {
               {({ open }) => (
                 <>
                   <StyledPopoverButton
-                    $color={primary.dark.color}
-                    $colorHover={primary.dark.color}
-                    $bgColor={neutral.white.color}
-                    $bgColorHover={neutral.white.color}
+                    $color={primary?.dark?.color}
+                    $colorHover={primary?.dark?.color}
+                    $bgColor={neutral?.white?.color}
+                    $bgColorHover={neutral?.white?.color}
                     className="inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   >
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <StyledXIcon
-                        $color={accent.default.color}
-                        $colorHover={accent.dark.color}
+                        $color={accent?.default?.color}
+                        $colorHover={accent?.dark?.color}
                         className="block h-10 w-10"
                         aria-hidden="true"
                       />
                     ) : (
                       <StyledMenuIcon
-                        $color={accent.default.color}
-                        $colorHover={accent.dark.color}
+                        $color={accent?.default?.color}
+                        $colorHover={accent?.dark?.color}
                         className="block h-10 w-10"
                         aria-hidden="true"
                       />
@@ -474,8 +478,8 @@ const NavbarPrimary = () => {
                       <div className="shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="relative grid grid-cols-1 gap-8 bg-white p-7">
                           <StyledMobileMenuLinks
-                            $color={neutral.darker.color}
-                            $colorHover={accent.default.color}
+                            $color={neutral?.darker?.color}
+                            $colorHover={accent?.default?.color}
                             className="flex flex-col space-y-8"
                           >
                             {navbars?.map((primary) =>
@@ -484,7 +488,7 @@ const NavbarPrimary = () => {
                                   <li>
                                     <AnchorText
                                       type="internal"
-                                      color={neutral.default.color}
+                                      color={neutral?.default?.color}
                                       to={link?.singlePageLink?.slug?.current}
                                     >
                                       {link?.singlePageLink?.anchor}
@@ -520,15 +524,17 @@ const NavbarPrimary = () => {
                                               (dropdownLink) => (
                                                 <AnchorText
                                                   type="internal"
-                                                  color={neutral.default.color}
+                                                  color={
+                                                    neutral?.default?.color
+                                                  }
                                                   to={
-                                                    dropdownLink.singlePageLink
-                                                      .slug.current
+                                                    dropdownLink?.singlePageLink
+                                                      ?.slug.current
                                                   }
                                                 >
                                                   {
-                                                    dropdownLink.singlePageLink
-                                                      .anchor
+                                                    dropdownLink?.singlePageLink
+                                                      ?.anchor
                                                   }
                                                 </AnchorText>
                                               )
@@ -544,7 +550,7 @@ const NavbarPrimary = () => {
                           </StyledMobileMenuLinks>
                         </div>
                         <StyledMobileNavCtaBg
-                          $bgColor={primary.darker.color}
+                          $bgColor={primary?.darker?.color}
                           className="p-6 flex justify-center"
                         >
                           <NavbarPrimaryMobileCtaButton />

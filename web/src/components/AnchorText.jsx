@@ -22,24 +22,6 @@ const AnchorText = function ({
   lineHeightHover,
 }) {
   switch (type) {
-    default:
-      return (
-        <StyledAnchorTextInternal
-          to={to}
-          $color={color}
-          $colorHover={colorHover}
-          $weight={weight}
-          $weightHover={weightHover}
-          $size={size}
-          $sizeHover={sizeHover}
-          $lineHeight={lineHeight}
-          $lineHeightHover={lineHeightHover}
-          className={classes}
-          activeClassName="active"
-        >
-          {children}
-        </StyledAnchorTextInternal>
-      );
     case 'internal':
       return (
         <StyledAnchorTextInternal
@@ -75,6 +57,24 @@ const AnchorText = function ({
         >
           {children}
         </StyledAnchorTextExternal>
+      );
+    default:
+      return (
+        <StyledAnchorTextInternal
+          to={to}
+          $color={color}
+          $colorHover={colorHover}
+          $weight={weight}
+          $weightHover={weightHover}
+          $size={size}
+          $sizeHover={sizeHover}
+          $lineHeight={lineHeight}
+          $lineHeightHover={lineHeightHover}
+          className={classes}
+          activeClassName="active"
+        >
+          {children}
+        </StyledAnchorTextInternal>
       );
   }
 };

@@ -29,11 +29,11 @@ const SidebarListServices = ({ type }) => {
     <div className="space-y-6 lg:sticky lg:top-44">
       <StyledContainer
         padding="none"
-        bgColor={primary.dark.color}
-        h2Color={accent.default.color}
-        h3Color={neutral.lighter.color}
-        h3ColorHover={accent.default.color}
-        spanColor={accent.default.color}
+        bgColor={primary?.dark?.color}
+        h2Color={accent?.default?.color}
+        h3Color={neutral?.lighter?.color}
+        h3ColorHover={accent?.default?.color}
+        spanColor={accent?.default?.color}
         outerClasses="rounded-xl shadow-xl"
         classes="relative p-3 lg:p-5 max-w-4xl mx-3 lg:mx-auto"
       >

@@ -159,8 +159,8 @@ const NavbarPrimaryMobileMenuSection = () => {
                             <Col key={link._key} classes="ml-3">
                               <AnchorText
                                 type="internal"
-                                color={neutral.dark.color}
-                                colorHover={accent.default.color}
+                                color={neutral?.dark?.color}
+                                colorHover={accent?.default?.color}
                                 weight={500}
                                 size="1.125rem"
                                 lineHeight="1.75rem"
@@ -183,8 +183,8 @@ const NavbarPrimaryMobileMenuSection = () => {
                   <div key={page._key}>
                     <AnchorText
                       type="internal"
-                      color={neutral.dark.color}
-                      colorHover={accent.default.color}
+                      color={neutral?.dark?.color}
+                      colorHover={accent?.default?.color}
                       weight={500}
                       size="1.125rem"
                       lineHeight="1.75rem"

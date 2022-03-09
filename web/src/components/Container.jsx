@@ -15,9 +15,11 @@ const Container = ({
   h3ColorHover,
   spanColor,
   outerClasses,
+  initialOpacity,
+  initialScale,
 }) => {
   const variants = {
-    initial: { opacity: 0, scale: 0.8 },
+    initial: { opacity: initialOpacity, scale: initialScale },
     animate: {
       opacity: 1,
       scale: 1,
@@ -152,12 +154,16 @@ const Container = ({
 Container.defaultProps = {
   padding: `sm`,
   classes: ``,
+  initialOpacity: 0,
+  initialScale: 0.8,
 };
 
 Container.propTypes = {
   padding: PropTypes.string,
   classes: PropTypes.string,
   children: PropTypes.node.isRequired,
+  initialOpacity: PropTypes.number,
+  initialScale: PropTypes.number,
 };
 
 export default Container;

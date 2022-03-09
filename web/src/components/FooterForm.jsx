@@ -2,11 +2,11 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import { Form, FadeIn, Section } from '.';
+import { Form, FadeIn, Section, Overlay } from '.';
 import { useSanity } from '../hooks';
 
 const FooterForm = () => {
-  const { footers } = useSanity();
+  const { footers, hero } = useSanity();
 
   return (
     <Section padding="none">
@@ -19,11 +19,12 @@ const FooterForm = () => {
               alt={footer.bgImg.alt}
               loading="eager"
             />
-            <div
+            <Overlay overlay={hero?.overlay?.color} />
+            {/* <div
               className="absolute inset-0 bg-zinc-200"
               style={{ mixBlendMode: 'multiply' }}
               aria-hidden="true"
-            />
+            /> */}
           </div>
           <FadeIn classes="z-10 px-3 lg:px-0 py-24">
             <Form formName="form-footer" />

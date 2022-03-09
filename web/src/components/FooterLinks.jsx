@@ -104,14 +104,14 @@ const FooterLinks = () => {
   ];
 
   return (
-    <Section padding="sm" bgColor={neutral.lighter.color}>
+    <Section padding="sm" bgColor={neutral?.lighter?.color}>
       <Container padding="sm" classes="py-12 lg:py-16">
         <Grid classes="lg:grid-cols-3 gap-12">
           <Col classes="lg:col-span-1 space-y-6 flex flex-col justify-self-center lg:justify-self-start">
             <div className="mx-auto text-center">
               <GatsbyImage
-                image={logo.footer?.asset?.gatsbyImageData}
-                alt={`${info.name} company logo`}
+                image={logo?.footer?.asset?.gatsbyImageData}
+                alt={`${info?.name} company logo`}
                 loading="lazy"
                 className="w-56 transition hover:scale-110"
               />
@@ -129,8 +129,8 @@ const FooterLinks = () => {
                 item.socialLinks.map((social) => (
                   <AnchorText
                     type="external"
-                    color={accent.default.color}
-                    colorHover={primary.dark.color}
+                    color={accent?.default?.color}
+                    colorHover={primary?.dark?.color}
                     key={social.url}
                     href={social.url}
                   >
@@ -158,8 +158,8 @@ const FooterLinks = () => {
                       <li key={link.slug.current}>
                         <AnchorText
                           type="internal"
-                          color={neutral.default.color}
-                          colorHover={accent.default.color}
+                          color={neutral?.default?.color}
+                          colorHover={accent?.default?.color}
                           to={link.slug.current}
                           className="text-base break-words"
                         >
@@ -180,8 +180,8 @@ const FooterLinks = () => {
                       <li key={link.slug.current}>
                         <AnchorText
                           type="internal"
-                          color={neutral.default.color}
-                          colorHover={accent.default.color}
+                          color={neutral?.default?.color}
+                          colorHover={accent?.default?.color}
                           to={link.slug.current}
                           className="text-base break-words"
                         >
@@ -204,8 +204,8 @@ const FooterLinks = () => {
                     >
                       <AnchorText
                         type="external"
-                        color={neutral.default.color}
-                        colorHover={accent.default.color}
+                        color={neutral?.default?.color}
+                        colorHover={accent?.default?.color}
                         href={item.url}
                         className="text-base break-words"
                       >

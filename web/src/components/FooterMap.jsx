@@ -26,7 +26,7 @@ const FooterMap = () => {
           </div>
           <div className="space-y-8 lg:col-span-1 text-white mt-6 lg:mt-0">
             <h2 className="text-3xl font-bold text-accent">
-              {info.name} Is Located In {info.cityState}
+              {info?.name} Is Located In {info.cityState}
             </h2>
             <p>
               Are you looking for directions to our central office at{' '}

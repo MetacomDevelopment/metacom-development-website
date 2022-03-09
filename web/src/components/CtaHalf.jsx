@@ -47,13 +47,13 @@ const CtaHalf = ({
   const { primary, secondary, accent, neutral, hero } = useSanity();
 
   return (
-    <Section padding="none" bgColor={neutral.dark.color}>
+    <Section padding="none" bgColor={neutral?.dark?.color}>
       <Container padding="none">
         <Grid classes="lg:grid-cols-2 gap-0">
           <Col classes="">
             <GatsbyImage
               image={image?.asset?.gatsbyImageData}
-              className="aspect-w-12 aspect-h-7 lg:w-full lg:h-full object-cover object-center"
+              className="aspect-w-12 aspect-h-7 lg:w-full lg:h-full object-cover object-center !block"
               alt={image?.alt}
               loading="lazy"
             />
@@ -67,12 +67,12 @@ const CtaHalf = ({
                 {headline}
               </h2>
               <div className="!text-zinc-300 space-y-6 mt-6">
-                <SanityBlockContent blocks={raw.description} />
+                <SanityBlockContent blocks={raw?.description} />
               </div>
               <div className="mx-auto lg:mx-none mt-12 flex justify-center lg:justify-start rounded-md drop-shadow">
                 <Button
                   linkType="internal"
-                  internalLink={ctaButtonLink.slug.current}
+                  internalLink={ctaButtonLink?.slug?.current}
                   label={ctaButtonLabel}
                 />
               </div>

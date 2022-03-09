@@ -57,7 +57,7 @@ const SidebarCta = ({ type }) => {
           ))}
           <div
             className="p-3 lg:p-5 rounded-xl shadow-xl"
-            // style={{ backgroundColor: colors.primary.dark.color }}
+            // style={{ backgroundColor: colors.primary?.dark?.color }}
           >
             <ul className="space-y-3 divide-y">
               {brands.map((brand) =>
@@ -92,7 +92,7 @@ const SidebarCta = ({ type }) => {
           ))}
           <div
             className="p-3 lg:p-5 rounded-xl shadow-xl"
-            // style={{ backgroundColor: colors.primary.dark.color }}
+            // style={{ backgroundColor: colors.primary?.dark?.color }}
           >
             <ul className="space-y-3 divide-y">
               {services.map((service) =>
@@ -127,7 +127,7 @@ const SidebarCta = ({ type }) => {
           ))}
           <div
             className="p-3 lg:p-5 rounded-xl shadow-xl"
-            // style={{ backgroundColor: colors.primary.dark.color }}
+            // style={{ backgroundColor: colors.primary?.dark?.color }}
           >
             <ul className="space-y-3 divide-y">
               {businessLocations.map((location) =>

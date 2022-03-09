@@ -12,12 +12,14 @@ export default {
       name: 'headline',
       type: 'string',
       group: 'headerSet',
+      initialValue: 'This Will Be A Great Headline',
     },
     {
       title: 'Tagline',
       name: 'tagline',
       type: 'string',
       group: 'headerSet',
+      initialValue: 'Another Headline',
     },
     {
       title: 'Description',

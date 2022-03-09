@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import {
   Section,
+  SectionHeader,
   Container,
   Grid,
   Row,
@@ -40,25 +41,8 @@ const StyledLink = styled((props) => <Link {...props} />)`
   }
 `;
 
-const RowTextLeft = ({
-  raw,
-  _key,
-  headline,
-  _rawDescription,
-  image,
-  alt,
-  idName,
-  ctaButton,
-  linkType,
-  label,
-  internalLink,
-  externalLink,
-  jumpLink,
-}) => (
-  <Grid
-    key={_key}
-    classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36 lg:max-w-7xl"
-  >
+const RowTextLeft = ({ headline, _rawDescription, image }) => (
+  <Grid classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36 lg:max-w-7xl">
     <Col classes="order-2 lg:order-none">
       <div className="text-lg text-zinc-500 max-w-prose mx-auto lg:max-w-none space-y-10">
         <div className="space-y-6">
@@ -84,21 +68,8 @@ const RowTextLeft = ({
   </Grid>
 );
 
-const RowTextRight = ({
-  _key,
-  headline,
-  _rawDescription,
-  image,
-  alt,
-  idName,
-  ctaButton,
-  linkType,
-  label,
-  internalLink,
-  externalLink,
-  jumpLink,
-}) => (
-  <Grid key={_key} classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36">
+const RowTextRight = ({ headline, _rawDescription, image }) => (
+  <Grid classes="lg:grid-cols-2 gap-x-32 gap-y-14 lg:gap-y-36 lg:max-w-7xl">
     <Col classes="order-1 lg:order-none">
       <Container padding="none">
         <GatsbyImage
@@ -124,20 +95,10 @@ const RowTextRight = ({
   </Grid>
 );
 
-const FeaturesAltNoCta = ({
-  block,
-  raw,
-  index,
-  feature,
-  headline,
-  _rawDescription,
-  image,
-  ctaButton,
-  idName,
-}) => {
+const FeaturesAltNoCta = ({ block, raw, index, idName, header, feature }) => {
   const { primary, secondary, accent, neutral, hero } = useSanity();
 
-  const featureRows = feature.map((r, i) =>
+  const featureRows = feature?.map((r, i) =>
     i % 2 === 0 ? (
       <RowTextLeft key={r._key} {...r} />
     ) : (
@@ -149,9 +110,15 @@ const FeaturesAltNoCta = ({
     <Section
       idName={idName}
       type="my"
-      bgColor={neutral.white.color}
-      h2Color={primary.dark.color}
+      bgColor={neutral?.white?.color}
+      h2Color={primary?.dark?.color}
+      classes="space-y-24"
     >
+      <SectionHeader
+        tagline={header?.tagline}
+        headline={header?.headline}
+        description={header?._rawDescription}
+      />
       <Container classes="space-y-24">{featureRows}</Container>
     </Section>
   );

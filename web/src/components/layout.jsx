@@ -42,13 +42,13 @@ const Layout = function ({ pageType, children }) {
         <div>
           <Header />
           <GlobalStyles
-            $linkColor={accent.default.color}
-            $linkColorHover={accent.light.color}
-            $h2Color={primary.dark.color}
-            $h3Color={secondary.dark.color}
-            $h4Color={neutral.dark.color}
-            $h5Color={neutral.default.color}
-            $h6Color={neutral.default.color}
+            $linkColor={accent?.default?.color}
+            $linkColorHover={accent?.light?.color}
+            $h2Color={primary?.dark?.color}
+            $h3Color={secondary?.dark?.color}
+            $h4Color={neutral?.dark?.color}
+            $h5Color={neutral?.default?.color}
+            $h6Color={neutral?.default?.color}
           >
             {/* <div className="mt-[150px] md:mt-[144px] lg:mt-[144px] xl:mt-[144px]"> */}
             <main>{children}</main>
@@ -62,13 +62,13 @@ const Layout = function ({ pageType, children }) {
         <div>
           <Header />
           <GlobalStyles
-            $linkColor={accent.default.color}
-            $linkColorHover={accent.light.color}
-            $h2Color={primary.dark.color}
-            $h3Color={secondary.dark.color}
-            $h4Color={neutral.dark.color}
-            $h5Color={neutral.default.color}
-            $h6Color={neutral.default.color}
+            $linkColor={accent?.default?.color}
+            $linkColorHover={accent?.light?.color}
+            $h2Color={primary?.dark?.color}
+            $h3Color={secondary?.dark?.color}
+            $h4Color={neutral?.dark?.color}
+            $h5Color={neutral?.default?.color}
+            $h6Color={neutral?.default?.color}
           >
             {/* <div className="mt-[150px] md:mt-[144px] lg:mt-[144px] xl:mt-[144px]"> */}
             <main>{children}</main>
@@ -82,13 +82,13 @@ const Layout = function ({ pageType, children }) {
         <div>
           <Header />
           <GlobalStyles
-            $linkColor={accent.default.color}
-            $linkColorHover={accent.light.color}
-            $h2Color={primary.dark.color}
-            $h3Color={secondary.dark.color}
-            $h4Color={neutral.dark.color}
-            $h5Color={neutral.default.color}
-            $h6Color={neutral.default.color}
+            $linkColor={accent?.default?.color}
+            $linkColorHover={accent?.light?.color}
+            $h2Color={primary?.dark?.color}
+            $h3Color={secondary?.dark?.color}
+            $h4Color={neutral?.dark?.color}
+            $h5Color={neutral?.default?.color}
+            $h6Color={neutral?.default?.color}
           >
             {/* <div className="mt-[150px] md:mt-[144px] lg:mt-[144px] xl:mt-[144px]"> */}
             <main>{children}</main>
@@ -102,13 +102,13 @@ const Layout = function ({ pageType, children }) {
         <div>
           <Header />
           <GlobalStyles
-            $linkColor={accent.default.color}
-            $linkColorHover={accent.light.color}
-            $h2Color={primary.dark.color}
-            $h3Color={secondary.dark.color}
-            $h4Color={neutral.dark.color}
-            $h5Color={neutral.default.color}
-            $h6Color={neutral.default.color}
+            $linkColor={accent?.default?.color}
+            $linkColorHover={accent?.light?.color}
+            $h2Color={primary?.dark?.color}
+            $h3Color={secondary?.dark?.color}
+            $h4Color={neutral?.dark?.color}
+            $h5Color={neutral?.default?.color}
+            $h6Color={neutral?.default?.color}
           >
             {/* <div className="mt-[150px] md:mt-[144px] lg:mt-[144px] xl:mt-[144px]"> */}
             <main>{children}</main>
@@ -122,13 +122,13 @@ const Layout = function ({ pageType, children }) {
         <div>
           <Header />
           <GlobalStyles
-            $linkColor={accent.default.color}
-            $linkColorHover={accent.light.color}
-            $h2Color={primary.dark.color}
-            $h3Color={secondary.dark.color}
-            $h4Color={neutral.dark.color}
-            $h5Color={neutral.default.color}
-            $h6Color={neutral.default.color}
+            $linkColor={accent?.default?.color}
+            $linkColorHover={accent?.light?.color}
+            $h2Color={primary?.dark?.color}
+            $h3Color={secondary?.dark?.color}
+            $h4Color={neutral?.dark?.color}
+            $h5Color={neutral?.default?.color}
+            $h6Color={neutral?.default?.color}
           >
             {/* <div className="mt-[150px] md:mt-[144px] lg:mt-[144px] xl:mt-[144px]"> */}
             <main>{children}</main>

@@ -59,6 +59,14 @@ export const query = graphql`
           _key
           _type
           _rawDescription
+          iconUpload {
+            alt
+            asset {
+              extension
+              url
+              originalFilename
+            }
+          }
           author
           title
           info
@@ -90,25 +98,30 @@ export const query = graphql`
       ... on SanityFeatures {
         _key
         _type
-        layout
+        _rawFeature
+        _rawHeader
         idName
-        feature {
-          _rawDescription(resolveReferences: { maxDepth: 10 })
-          _key
-          _type
+        layout
+        header {
+          _rawDescription
           headline
-
+          tagline
+        }
+        feature {
+          _rawDescription
           ctaButton {
-            label
-            linkType
+            externalLink
             internalLink {
+              anchor
               slug {
                 current
               }
             }
-            externalLink
             jumpLink
+            label
+            linkType
           }
+          headline
           image {
             alt
             asset {
@@ -117,6 +130,42 @@ export const query = graphql`
           }
         }
       }
+      # ... on SanityFeatures {
+      #   _key
+      #   _type
+      #   _rawFeature
+      #   _rawHeader
+      #   layout
+      #   idName
+      #   header {
+      #     _rawDescription
+      #     headline
+      #     tagline
+      #   }
+      #   feature {
+      #     _rawDescription(resolveReferences: { maxDepth: 10 })
+      #     _key
+      #     _type
+      #     headline
+      #     ctaButton {
+      #       label
+      #       linkType
+      #       internalLink {
+      #         slug {
+      #           current
+      #         }
+      #       }
+      #       externalLink
+      #       jumpLink
+      #     }
+      #     image {
+      #       alt
+      #       asset {
+      #         gatsbyImageData(placeholder: BLURRED, formats: WEBP)
+      #       }
+      #     }
+      #   }
+      # }
       ... on SanityCta {
         _key
         _type

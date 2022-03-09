@@ -60,8 +60,8 @@ const Button = ({
               : `/${internalLink}/`
           }
           className="inline-flex items-center py-3 px-6 text-lg font-bold text-zinc-50 hover:text-white  rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 hover:-translate-y-0.5 translate transform transition-all"
-          $bgColor={accent.default.color}
-          $bgColorHover={accent.dark.color}
+          $bgColor={accent?.default?.color}
+          $bgColorHover={accent?.dark?.color}
         >
           <span className="">
             {label === null || undefined ? 'Call Now' : label}
@@ -78,9 +78,9 @@ const Button = ({
           secondaryBtn={
             secondaryBtn === null || undefined ? false : secondaryBtn
           }
-          $bgColor={secondaryBtn ? 'transparent' : accent.default.color}
+          $bgColor={secondaryBtn ? 'transparent' : accent?.default?.color}
           $bgColorHover={
-            secondaryBtn ? accent.default.color : accent.dark.color
+            secondaryBtn ? accent?.default?.color : accent?.dark?.color
           }
         >
           <span className="">
@@ -94,8 +94,8 @@ const Button = ({
           type="submit"
           value="Submit"
           className="inline-flex items-center py-3 px-6 text-lg font-bold text-zinc-50 hover:text-white  rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 hover:-translate-y-0.5 translate transform transition-all"
-          $bgColor={accent.default.color}
-          $bgColorHover={accent.dark.color}
+          $bgColor={accent?.default?.color}
+          $bgColorHover={accent?.dark?.color}
         >
           <span className="">
             {label === null || undefined ? 'Submit Inquiry' : label}
@@ -110,11 +110,13 @@ const Button = ({
           secondaryBtn={
             secondaryBtn === null || undefined ? false : secondaryBtn
           }
-          $bgColor={secondaryBtn ? 'transparent' : accent.default.color}
+          $bgColor={secondaryBtn ? 'transparent' : accent?.default?.color}
           $bgColorHover={
-            secondaryBtn ? neutral.darker.color : accent.dark.color
+            secondaryBtn ? neutral?.darker?.color : accent?.dark?.color
           }
-          $colorHover={secondaryBtn ? accent.default.color : accent.dark.color}
+          $colorHover={
+            secondaryBtn ? accent?.default?.color : accent?.dark?.color
+          }
         >
           <span className="">
             {label === null || undefined ? 'Call Now' : label}
@@ -132,8 +134,8 @@ const Button = ({
               : `/${internalLink}/`
           }
           className="inline-flex items-center py-3 px-6 text-lg font-bold text-zinc-50 hover:text-white  rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 hover:-translate-y-0.5 translate transform transition-all"
-          $bgColor={accent.default.color}
-          $bgColorHover={accent.dark.color}
+          $bgColor={accent?.default?.color}
+          $bgColorHover={accent?.dark?.color}
         >
           <span className="">
             {label === null || undefined ? 'Call Now' : label}

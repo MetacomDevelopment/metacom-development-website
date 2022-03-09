@@ -25,18 +25,18 @@ const StyledButton = styled.button`
 
 const FormHero = ({ formName }) => {
   const [contact, setContact] = useState({
-    firstName: '',
-    lastName: '',
+    fullName: '',
+    // lastName: '',
     email: '',
     phone: '',
+    location: '',
     service: '',
     type: '',
-    findUs: '',
+    // findUs: '',
     message: '',
   });
 
-  const { firstName, lastName, email, phone, service, type, findUs, message } =
-    contact;
+  const { fullName, email, phone, location, service, type, message } = contact;
 
   const handleChange = (e) =>
     setContact({ ...contact, [e.target.name]: e.target.value });
@@ -49,41 +49,41 @@ const FormHero = ({ formName }) => {
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      className="relative p-3 lg:p-5 rounded-xl shadow-xl max-w-4xl mx-3 lg:mx-auto"
+      className="relative mx-3 max-w-4xl rounded-xl p-3 shadow-xl lg:mx-auto lg:p-5"
       id={formName}
-      $bgColor={primary.dark.color}
+      $bgColor={primary?.dark?.color}
     >
       {forms.map((form) => (
         <div>
-          {/* <div className="space-y-6 mb-16">
+          <div className="mb-6 space-y-6">
             <StyledHeadline
-              className="text-4xl font-bold text-center mb-1 mt-4 mt-md-0"
-              $color={accent.default.color}
+              className="text-center text-4xl font-bold"
+              $color={accent?.default?.color}
             >
               {form.headline}
             </StyledHeadline>
-            <StyledBorder
-              className="text-xl font-italic text-zinc-100 text-center"
-              $borderColor={accent.light.color}
+            {/* <StyledBorder
+              className="font-italic text-center text-xl text-zinc-100"
+              $borderColor={accent?.light?.color}
             >
               <SanityBlockContent blocks={form._rawTagline} />
-            </StyledBorder>
-          </div> */}
+            </StyledBorder> */}
+          </div>
           <input type="hidden" name="form-name" value={formName} />
 
-          <Grid classes="gap-x-4 gap-y-6 lg:grid-cols-2">
+          <Grid classes="gap-x-4 gap-y-4 lg:grid-cols-2">
             <Col>
               <input
-                name="firstName"
+                name="fullName"
                 type="text"
-                value={firstName}
+                value={fullName}
                 onChange={handleChange}
                 placeholder="First Name"
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
-            <Col>
+            {/* <Col>
               <input
                 name="lastName"
                 type="text"
@@ -93,7 +93,7 @@ const FormHero = ({ formName }) => {
                 required
                 className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
               />
-            </Col>
+            </Col> */}
             <Col>
               <input
                 name="email"
@@ -102,7 +102,7 @@ const FormHero = ({ formName }) => {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
             <Col>
@@ -113,7 +113,18 @@ const FormHero = ({ formName }) => {
                 onChange={handleChange}
                 placeholder="Phone Number"
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
+              />
+            </Col>
+            <Col>
+              <input
+                name="location"
+                type="text"
+                value={location}
+                onChange={handleChange}
+                placeholder="Location"
+                required
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
             <Col>
@@ -123,32 +134,19 @@ const FormHero = ({ formName }) => {
                 value={service}
                 onChange={handleChange}
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               >
                 <option value="" disabled hidden>
                   Service...
                 </option>
-                <option value="HVAC System Design" className="bg-gray-50">
-                  HVAC System Design
+                <option value="Solar Development">Solar Development</option>
+                <option value="Waste Water Treatment Installation">
+                  Waste Water Treatment Installation
                 </option>
-                <option value="Duct Leakage Testing">
-                  Duct Leakage Testing
+                <option value="Commercial Construction">
+                  Commercial Construction
                 </option>
-                <option
-                  value="Preventive Maintenance Program"
-                  className="bg-gray-50"
-                >
-                  Preventive Maintenance Program
-                </option>
-                <option value="Mass Save HVAC MeasureQuick AC Check">
-                  Mass Save HVAC MeasureQuick AC Check
-                </option>
-                <option
-                  value="Mass Save Heat Pump Installer Network"
-                  className="bg-gray-50"
-                >
-                  Mass Save Heat Pump Installer Network
-                </option>
+                <option value="Excavation">Excavation</option>
               </select>
             </Col>
             <Col>
@@ -158,60 +156,53 @@ const FormHero = ({ formName }) => {
                 value={type}
                 onChange={handleChange}
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               >
                 <option value="" disabled hidden>
                   Type...
                 </option>
-                <option value="Residential" className="bg-gray-50">
-                  Residential
+                <option value="Solar Development">Solar Development</option>
+                <option value="Waste Water Treatment Installation">
+                  Waste Water Treatment Installation
                 </option>
-                <option value="Commercial">Commercial</option>
-                <option value="Industrial" className="bg-gray-50">
-                  Industrial
+                <option value="Commercial Construction">
+                  Commercial Construction
                 </option>
+                <option value="Excavation">Excavation</option>
               </select>
             </Col>
-            <Col classes="lg:col-span-2">
+            {/* <Col classes="lg:col-span-2">
               <select
                 name="findUs"
                 as="select"
                 value={findUs}
                 onChange={handleChange}
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               >
                 <option value="" disabled hidden>
                   How Did You Find Us?
                 </option>
-                <option value="Google" className="bg-gray-50">
-                  Google
-                </option>
+                <option value="Google">Google</option>
                 <option value="Bing">Bing</option>
-                <option value="Facebook" className="bg-gray-50">
-                  Facebook
-                </option>
+                <option value="Facebook">Facebook</option>
                 <option value="LinkedIn">LinkedIn</option>
-                <option value="Referral" className="bg-gray-50">
-                  Referral
-                </option>
+                <option value="Referral">Referral</option>
                 <option value="Directory (Yellowpages, etc.)">
                   Directory (Yellowpages, etc.)
                 </option>
-                <option value="Other" className="bg-gray-50">
-                  Other
-                </option>
+                <option value="Other">Other</option>
               </select>
-            </Col>
+            </Col> */}
             <Col classes="lg:col-span-2">
               <textarea
                 name="message"
                 rows="3"
                 value={message}
                 onChange={handleChange}
-                placeholder="Message"
+                placeholder="Please leave a detailed message..."
                 required
-                className="shadow-sm focus:ring-zinc-500 focus:border-zinc-500 block w-full sm:text-sm border-zinc-300 rounded-md"
+                className="block w-full rounded-md border-zinc-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm"
               />
             </Col>
           </Grid>
@@ -225,8 +216,8 @@ const FormHero = ({ formName }) => {
               never be shared.
             </p>
           </div> */}
-          <div className="text-center mt-10 mb-6">
-            <Button linkType="form" label="Submit Inquiry" />
+          <div className="mt-5 mb-3 text-center lg:mb-0">
+            <Button linkType="form" label={form.buttonCta} />
           </div>
         </div>
       ))}
